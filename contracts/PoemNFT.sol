@@ -17,10 +17,14 @@ contract Poem is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     function publishAPoem(address to, string memory uri)
         public
         onlyOwner
+
+        returns (uint256)
     {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+
+        return tokenId;
     }
 
     function tokenURI(uint256 tokenId)
