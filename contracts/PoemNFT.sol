@@ -10,9 +10,11 @@ contract Poem is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     uint256 private _nextTokenId;
 
     constructor(address initialOwner)
-        ERC721("Gedicht", "GDCHT")
+        ERC721("Gedicht2", "GDCHT2")
         Ownable(initialOwner)
-    {}
+    {
+        _nextTokenId = 0;
+    }
 
     function publishAPoem(address to, string memory uri)
         public
@@ -24,7 +26,7 @@ contract Poem is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
 
-        return tokenId;
+        return 6;
     }
 
     function tokenURI(uint256 tokenId)
